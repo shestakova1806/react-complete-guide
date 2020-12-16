@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import classes from "./Cockpit.css";
 
-export const Cockpit = (props) => {
+const cockpit = (props) => {
   useEffect(() => {
     console.log("[Cockpit.js] useEffect");
     const timer = setTimeout(() => {
@@ -27,10 +27,10 @@ export const Cockpit = (props) => {
     btnClass = classes.Red;
   }
 
-  if (props.persons.length <= 2) {
+  if (props.personsLength <= 2) {
     assignedClasses.push(classes.red);
   }
-  if (props.persons.length <= 1) {
+  if (props.personsLength <= 1) {
     assignedClasses.push(classes.bold);
   }
 
@@ -44,3 +44,5 @@ export const Cockpit = (props) => {
     </div>
   );
 };
+
+export const Cockpit = React.memo(cockpit);
