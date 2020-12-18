@@ -1,16 +1,7 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import { Person } from "./Person/Person";
 
-export class Persons extends Component {
-  shouldComponentUpdate(nextProps, nextState) {
-    console.log("[Persons.js] shouldComponentUpdate");
-    if (nextProps.persons !== this.props.persons) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-
+export class Persons extends PureComponent {
   getSnapshotBeforeUpdate() {
     console.log("[Persons.js] getSnapshotBeforeUpdate");
     return { message: "Snapshot!" };
