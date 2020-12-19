@@ -2,9 +2,10 @@ import React, { Component } from "react";
 import classes from "./App.css";
 import { Persons } from "../components/Persons/Persons";
 import { Cockpit } from "../components/Cockpit/Cockpit";
-import { WithClass } from "../hoc/WithClass";
+import { withClass } from "../hoc/withClass";
+import { Aux } from "../hoc/Aux";
 
-export class App extends Component {
+class app extends Component {
   constructor(props) {
     super(props);
     console.log("[App.js] constructor");
@@ -78,7 +79,7 @@ export class App extends Component {
     }
 
     return (
-      <WithClass classes={classes.App}>
+      <Aux>
         <button onClick={() => this.setState({ showCockpit: false })}>
           Remove Cockpit
         </button>
@@ -91,7 +92,9 @@ export class App extends Component {
           />
         ) : null}
         {persons}
-      </WithClass>
+      </Aux>
     );
   }
 }
+
+export const App = withClass(app, classes.App);
