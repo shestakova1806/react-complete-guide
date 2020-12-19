@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { Aux } from "../../../hoc/Aux";
+import { withClass } from "../../../hoc/withClass";
 import classes from "./Person.css";
 
-export class Person extends Component {
+class person extends Component {
   render() {
     console.log("[Person.js] rendering...");
 
@@ -21,3 +22,5 @@ export class Person extends Component {
     );
   }
 }
+
+export const Person = withClass(person, classes.Person);
